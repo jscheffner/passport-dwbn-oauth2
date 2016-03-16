@@ -1,0 +1,31 @@
+﻿{
+    "operation":[
+        {
+            "@type":"ReplaceResourceOperation",
+            "method":"PUT"
+        }
+    ],
+    "@id":"https://dwbn-sso.g10f.de/api/v2/users/1234/",
+    "id":"1234",
+    "name":"GlobalAdmin",
+    "last_modified":"2016-01-01T07:17:59.204Z",
+	"picture": {
+		"url": "https://dwbn-sso.g10f.de/media/image/1234/ich2.png",
+		"@id": "https://dwbn-sso.g10f.de/api/v2/users/1234/picture/"
+	},
+    "family_name":"Doe",
+    "given_name":"Jon",
+    "birth_date":"1999-01-01",
+    "homepage":"http://jon-doe.com/",
+    "email":"admin@jon-doe.com",
+    "language":"de",
+    "gender":"m",
+    "is_center":false,
+    "organisations":{
+        "30664dd38ca4454e916e55fe8b1f0745":{
+            "country":"DE",
+            "@id":"https://dwbn-sso.g10f.de/api/v2/centers/110/",
+            "name":"Berlin"
+        }
+    }
+}
