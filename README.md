@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jscheffner/passport-dwbn-oauth2.svg?branch=master)](https://travis-ci.org/jscheffner/passport-dwbn-oauth2) [![Coverage Status](https://coveralls.io/repos/github/jscheffner/passport-dwbn-oauth2/badge.svg?branch=master)](https://coveralls.io/github/jscheffner/passport-dwbn-oauth2?branch=master)
+[![Build Status](https://travis-ci.org/jscheffner/passport-dwbn-oauth2.svg?branch=master)](https://travis-ci.org/jscheffner/passport-dwbn-oauth2) [![Coverage Status](https://coveralls.io/repos/github/jscheffner/passport-dwbn-oauth2/badge.svg?branch=master)](https://coveralls.io/github/jscheffner/passport-dwbn-oauth2?branch=master)[![node](https://img.shields.io/node/v/passport-dwbn-oauth2.svg)]() [![license](https://img.shields.io/npm/l/passport-dwbn-oauth2.svg)](https://github.com/jscheffner/passport-dwbn-oauth2#isc-licence)
 
 # passport-dwbn-oauth2
 
