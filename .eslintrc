@@ -6,6 +6,7 @@
   },
   "rules": {
     "comma-dangle": ["error", "never"],
-    "unicode-bom": "off"
+    "unicode-bom": "off",
+    "strict": "off"
   }
 }
