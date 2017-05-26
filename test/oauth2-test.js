@@ -67,7 +67,7 @@ describe('DWBN Strategy', function () {
       // eslint-disable-next-line no-underscore-dangle
       sandbox.stub(strategy._oauth2, 'get').callsArgWith(2, null, '<nojson>');
       strategy.userProfile('token', (err, data) => {
-        expect(err.message).to.equal('Unexpected token < in JSON at position 0');
+        expect(err.message).to.include('Unexpected token');
         expect(data).to.equal(undefined);
         done();
       });
