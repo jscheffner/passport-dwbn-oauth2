@@ -2,7 +2,52 @@
 
 # passport-dwbn-oauth2
 
-[DWBN](http://dwbn.org/) authentication strategy for [Passport](http://passportjs.org/).
+[Passport](http://passportjs.org/) authentication strategy for [DWBN](http://dwbn.org/)
+
+## Usage
+
+First, you need to install this module:
+
+````
+npm install --save passport-dwbn-oauth2
+````
+
+Now, you can import it and create an instance of the strategy:
+
+````
+const Strategy = require('passport-dwbn-oauth2');
+const strategy = new Strategy(OPTIONS);
+````
+
+Just replace `OPTIONS` with an object that suits your needs. ([Available Options](#options))
+Then, tell Passport to use the strategy:
+
+````
+passport.use(strategy, VERIFY);
+````
+
+Here, you have to replace `VERIFY` with a verify callback. Now, you can authenticate with this strategy. Just call `passport.authenticate('dwbn')`.
+
+If you need more information, check out Passport's [documentation](http://passportjs.org/docs).
+
+## API
+
+### `constructor(options)`
+- `options {object}` - authorizationURL, tokenURL, userinfoURL, clientID, clientSecret, callbackURL
+
+### Options
+
+#### `authorizationURL`
+default: https://sso.dwbn.org/oauth2/authorize/
+
+#### `tokenURL`
+default: https://sso.dwbn.org/oauth2/token/
+
+#### `userinfoURL`
+default: https://sso.dwbn.org/api/v1/users/me/
+
+#### `clientID`, `clientSecret`, `callbackSecret`
+Ask your admin.
 
 ## ISC Licence ##
 

@@ -1,7 +1,7 @@
 {
   "name": "passport-dwbn-oauth2",
-  "version": "1.0.0",
-  "description": "Passport strategy for DWBN OAuth 2",
+  "version": "0.0.1",
+  "description": "Passport authentication strategy for DWBN",
   "main": "./lib/oauth2.js",
   "scripts": {
     "test": "mocha",
@@ -10,11 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://jscheffner@bitbucket.org/jscheffner/passport-dwbn-oauth2.git"
+    "url": "https://github.com/jscheffner/passport-dwbn-oauth2/"
   },
   "author": "Jonas Scheffner",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/jscheffner/passport-dwbn-oauth2#readme",
+  "homepage": "https://github.com/jscheffner/passport-dwbn-oauth2/",
   "devDependencies": {
     "chai": "^3.5.0",
     "coveralls": "^2.13.1",
