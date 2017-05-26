@@ -28,5 +28,8 @@
   },
   "dependencies": {
     "passport-oauth2": "^1.2.0"
+  },
+  "engines": {
+    "node": ">= 4.3.2"
   }
 }

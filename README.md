@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/jscheffner/passport-dwbn-oauth2.svg?branch=master)](https://travis-ci.org/jscheffner/passport-dwbn-oauth2) [![Coverage Status](https://coveralls.io/repos/github/jscheffner/passport-dwbn-oauth2/badge.svg?branch=master)](https://coveralls.io/github/jscheffner/passport-dwbn-oauth2?branch=master)
