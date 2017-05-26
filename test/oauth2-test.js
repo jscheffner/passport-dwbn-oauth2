@@ -4,15 +4,14 @@ const expect = require('chai').expect;
 const DWBNStrategy = require('../');
 const OAuth2Strategy = require('passport-oauth2');
 const testUser = require('./test-user-data.json');
+const sinon = require('sinon');
 
 const options = {
   clientID: 'T3STID',
   clientSecret: 'psst'
 };
 
-const verify = () => {};
-
-const strategy = new DWBNStrategy(options, verify);
+const strategy = new DWBNStrategy(options, () => {});
 
 describe('DWBN Strategy', function () {
   it('should be named dwbn', function () {
@@ -23,21 +22,19 @@ describe('DWBN Strategy', function () {
     expect(strategy instanceof OAuth2Strategy).to.equal(true);
   });
 
-  // TODO: Test default options
-
   describe('#userProfile', function () {
+    const sandbox = sinon.sandbox.create();
+
+    afterEach(function () {
+      sandbox.restore();
+    });
+
     it('should load profile', function (done) {
+      const body = JSON.stringify(testUser);
       // eslint-disable-next-line no-underscore-dangle
-      strategy._oauth2.get = function (url, token, callback) {
-        const body = JSON.stringify(testUser);
-        callback(null, body);
-      };
+      sandbox.stub(strategy._oauth2, 'get').callsArgWith(2, null, body);
 
       strategy.userProfile('token', function (err, profile) {
-        if (err) {
-          return done(err);
-        }
-
         const expectedProfile = {
           provider: 'dwbn',
           id: '1234',
@@ -51,7 +48,28 @@ describe('DWBN Strategy', function () {
           ]
         };
         expect(profile).to.eql(expectedProfile);
+        expect(err).to.equal(null);
         return done();
+      });
+    });
+
+    it('should provide InternalOAuthError if sso request fails', function (done) {
+      // eslint-disable-next-line no-underscore-dangle
+      sandbox.stub(strategy._oauth2, 'get').callsArgWith(2, new Error('test error'));
+      strategy.userProfile('token', (err, data) => {
+        expect(err instanceof OAuth2Strategy.InternalOAuthError).to.equal(true);
+        expect(data).to.equal(undefined);
+        done();
+      });
+    });
+
+    it('should provide error if parsing data throws one', function (done) {
+      // eslint-disable-next-line no-underscore-dangle
+      sandbox.stub(strategy._oauth2, 'get').callsArgWith(2, null, '<nojson>');
+      strategy.userProfile('token', (err, data) => {
+        expect(err.message).to.equal('Unexpected token < in JSON at position 0');
+        expect(data).to.equal(undefined);
+        done();
       });
     });
   });
